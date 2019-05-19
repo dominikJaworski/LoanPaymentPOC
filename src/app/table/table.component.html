@@ -1,0 +1,42 @@
+<div *ngIf="loanTableOutput">
+
+  <table class="table-fill">
+    <thead>
+      <tr>
+        <th class="text-left">Month</th>
+        <th class="text-left">Starting Balance</th>
+        <th class="text-left">Monthly Payment</th>
+        <th class="text-left">Interest Paid</th>
+        <th class="text-left">Principal</th>
+        <th class="text-left">Ending Balance</th>
+        <th class="text-left">Total Interest Paid</th>
+      </tr>
+    </thead>
+    <tbody class="table-hover">
+      <tr *ngFor="let row of loanTableOutput ; index as i;">
+        <td class="text-right">
+          {{i+1}}
+        </td>
+        <td class="text-right">
+          {{row.startingBalance | currency}}
+        </td>
+        <td class="text-right">
+          {{row.payment | currency}}
+        </td>
+        <td class="text-right">
+          {{row.interestPaid | currency}}
+        </td>
+        <td class="text-right">
+          {{row.principal | currency}}
+        </td>
+        <td class="text-right">
+          {{row.endingBalance | currency}}
+        </td>
+        <td class="text-right">
+          {{row.totalInterest | currency}}
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>

@@ -1,0 +1,30 @@
+<form [formGroup]="inputForm" (ngSubmit)="OnSubmit()">
+
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Enter Card Balance" type="text" formControlName="cardBalance" required id="cardBalanceInput">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Enter Annual Rate" type="text" formControlName="annualRate" required id="annualRateInput">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Enter minimum percent" type="text" formControlName="minPercent" required id="minPercentInput">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Enter minimum cost" formControlName="minCost" required id="minCostInput">
+    </mat-form-field>
+  </div>
+  <div>
+
+      <button mat-flat-button color="primary">Calculate</button>
+
+  </div>
+</form>
+
+<app-table></app-table>

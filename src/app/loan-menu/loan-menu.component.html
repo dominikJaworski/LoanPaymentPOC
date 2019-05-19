@@ -1,0 +1,59 @@
+<div>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.path" routerLinkActive #rla="routerLinkActive"
+      [active]="rla.isActive">
+      {{link.label}}
+    </a>
+  </nav>
+
+</div>
+
+<!-- <div *ngIf="submitted">
+  <div class="table-title">
+    <h3>Your Loan Results:</h3>
+  </div>
+
+  <table class="table-fill">
+    <thead>
+      <tr>
+        <th class="text-left">Month</th>
+        <th class="text-left">Starting Balance</th>
+        <th class="text-left">Monthly Payment</th>
+        <th class="text-left">Interest Paid</th>
+        <th class="text-left">Principal</th>
+        <th class="text-left">Ending Balance</th>
+        <th class="text-left">Total Interest Paid</th>
+      </tr>
+    </thead>
+    <tbody class="table-hover">
+      <tr *ngFor="let row of loanTableOutput ; index as i;">
+        <td class="text-right">
+          {{i+1}}
+        </td>
+        <td class="text-right">
+          {{row.startingBalance | currency}}
+        </td>
+        <td class="text-right">
+          {{row.paidThisMonth | currency}}
+        </td>
+        <td class="text-right">
+          {{row.paidToInterest | currency}}
+        </td>
+        <td class="text-right">
+          {{row.principal | currency}}
+        </td>
+        <td class="text-right">
+          {{row.endingBalance | currency}}
+        </td>
+        <td class="text-right">
+          {{row.totalInterestPaid | currency}}
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <app-line-chart [data]="loanTableOutput">
+
+  </app-line-chart>
+</div> -->

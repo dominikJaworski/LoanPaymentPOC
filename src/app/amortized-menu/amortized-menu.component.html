@@ -1,0 +1,25 @@
+<form [formGroup]="inputForm" (ngSubmit)="OnSubmit()">
+
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Enter Loan Amount" type="text" formControlName="loanAmount" required id="loanAmountInput">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Enter Interest Rate" type="text" formControlName="interestRate" required id="interestRateInput">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Enter Term in Years" type="text" formControlName="termYears" required id="termYearsInput">
+    </mat-form-field>
+  </div>
+  <div>
+
+    <button mat-flat-button color="primary" type="submit">Calculate</button>
+
+  </div>
+</form>
+
+<app-table></app-table>
