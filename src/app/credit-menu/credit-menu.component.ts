@@ -37,7 +37,7 @@ export class CreditMenuComponent implements OnInit {
     const mp = parseFloat(this.inputForm.get('minPercent').value);
     const mc = parseFloat(this.inputForm.get('minCost').value);
 
-    this.loanTableOutput = this.createLoanTable(cb, ar, mp, mc);
+    this.loanTableOutput = this.createLoanTable(cb, (ar / 100), (mp / 100), mc);
     console.table(this.loanTableOutput);
   }
 
@@ -65,8 +65,8 @@ export class CreditMenuComponent implements OnInit {
   calculateEntries({ cardBalance, annualRate, minPercent, minCost }, table: TableEntry[]) {
     if (table.length === 0) {
 
-      const minPayment = Math.max(minCost, (minPercent / 100) * cardBalance);
-      const interest = cardBalance * (annualRate / 12);
+      const minPayment = Math.max(minCost, minPercent * cardBalance);
+      const interest = cardBalance * ((annualRate) / 12);
       const thePrincipal = minPayment - interest;
       const theBalance = cardBalance - thePrincipal;
 
@@ -82,8 +82,8 @@ export class CreditMenuComponent implements OnInit {
       const lastRow = table[table.length - 1];
 
       if (lastRow.endingBalance > 0) {
-        const minPayment = Math.max(lastRow.endingBalance * (annualRate / 100), minCost);
-        const interest = lastRow.endingBalance * annualRate / 12;
+        const minPayment = Math.max(lastRow.endingBalance * minPercent, minCost);
+        const interest = lastRow.endingBalance * (annualRate / 12);
         const thePrincipal = minPayment - interest;
         const theBalance = lastRow.endingBalance - thePrincipal;
 
@@ -93,7 +93,7 @@ export class CreditMenuComponent implements OnInit {
           interestPaid: interest,
           principal: thePrincipal,
           endingBalance: theBalance,
-          totalInterest: interest
+          totalInterest: lastRow.totalInterest + interest
         });
       } else {
         return;

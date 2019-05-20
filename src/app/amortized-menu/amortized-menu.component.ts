@@ -34,7 +34,7 @@ export class AmortizedMenuComponent implements OnInit {
     const ir = parseFloat(this.inputForm.get('interestRate').value);
     const ty = parseFloat(this.inputForm.get('termYears').value);
 
-    this.loanTableOutput = this.createLoanTable(la, ir, ty);
+    this.loanTableOutput = this.createLoanTable(la, (ir / 100), ty);
 
     console.table(this.loanTableOutput);
   }
@@ -42,9 +42,9 @@ export class AmortizedMenuComponent implements OnInit {
   createLoanTable(loanAmount: number, interestRate: number, termYears: number) {
     const starting = {
       loanAmount,
-      interestRate: interestRate / 100.0,
+      interestRate: interestRate,
       term: termYears,
-      monthlyPayment: this.pmt(interestRate / 100.0, termYears * 12, loanAmount),
+      monthlyPayment: this.pmt(interestRate, termYears * 12, loanAmount),
       extraMonthly: 0
     };
 
@@ -78,7 +78,7 @@ export class AmortizedMenuComponent implements OnInit {
     } else {
       const lastRow = table[table.length - 1];
 
-      if (lastRow.endingBalance > 0) {
+      if (lastRow.endingBalance >= 0) {
         const interest = lastRow.endingBalance * interestRate / 12;
         const principal = monthlyPayment + extraMonthly - interest;
         table.push({
