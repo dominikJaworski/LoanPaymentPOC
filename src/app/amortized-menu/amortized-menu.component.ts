@@ -13,8 +13,6 @@ export class AmortizedMenuComponent implements OnInit {
   loanTableOutput: TableEntry[];
   inputForm: FormGroup;
   submitted = false;
-  loanType = 0;
-  //success = false;
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -39,12 +37,12 @@ export class AmortizedMenuComponent implements OnInit {
     console.table(this.loanTableOutput);
   }
 
-  createLoanTable(loanAmount: number, interestRate: number, termYears: number) {
+  createLoanTable(loanAmount: number, interest_Rate: number, termYears: number) {
     const starting = {
       loanAmount,
-      interestRate: interestRate,
+      interestRate: interest_Rate,
       term: termYears,
-      monthlyPayment: this.pmt(interestRate, termYears * 12, loanAmount),
+      monthlyPayment: this.pmt(interest_Rate, termYears * 12, loanAmount),
       extraMonthly: 0
     };
 
