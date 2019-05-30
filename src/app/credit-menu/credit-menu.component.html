@@ -2,17 +2,20 @@
 
   <div>
     <mat-form-field>
-      <input matInput placeholder="Enter Card Balance" type="text" formControlName="cardBalance" required id="cardBalanceInput">
+      <input matInput placeholder="Enter Card Balance" type="text" formControlName="cardBalance" required
+        id="cardBalanceInput">
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
-      <input matInput placeholder="Enter Annual Rate" type="text" formControlName="annualRate" required id="annualRateInput">
+      <input matInput placeholder="Enter Annual Rate" type="text" formControlName="annualRate" required
+        id="annualRateInput">
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
-      <input matInput placeholder="Enter minimum percent of outstanding balance" type="text" formControlName="minPercent" required id="minPercentInput">
+      <input matInput placeholder="Enter minimum percent of outstanding balance" type="text"
+        formControlName="minPercent" required id="minPercentInput">
     </mat-form-field>
   </div>
   <div>
@@ -21,10 +24,18 @@
     </mat-form-field>
   </div>
   <div>
+    <mat-form-field>
+      <input matInput placeholder="Enter Preferred Flat Payment" type="text" formControlName="preferredPayment" required
+        id="preferredPaymentInput">
+    </mat-form-field>
+  </div>
+  <div>
 
-      <button mat-flat-button color="primary">Calculate</button>
+    <button mat-flat-button color="primary">Calculate</button>
 
   </div>
 </form>
 
 <app-table [loanTableOutput]="loanTableOutput"></app-table>
+
+<app-line-chart [data]="loanTableOutput"></app-line-chart>

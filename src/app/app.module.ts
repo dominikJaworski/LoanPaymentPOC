@@ -9,6 +9,7 @@ import { InterestMenuComponent } from './interest-menu/interest-menu.component';
 import { LoanMenuComponent } from './loan-menu/loan-menu.component';
 import { MaterialModule } from './material.module';
 import { TableComponent } from './table/table.component';
+import { LineChartComponent } from './line-chart/line-chart.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TableComponent } from './table/table.component';
     AmortizedMenuComponent,
     InterestMenuComponent,
     TableComponent,
-    CreditMenuComponent
+    CreditMenuComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,

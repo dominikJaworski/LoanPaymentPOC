@@ -1,24 +1,29 @@
-<form>
+<form [formGroup]="inputForm" (ngSubmit)="OnSubmit()">
   <div>
     <mat-form-field>
-      <input matInput placeholder="Enter Loan Amount" type="text" required>
+      <input matInput placeholder="Enter Loan Amount" type="text" formControlName="loanAmount" id="loanAmountInput"
+        required>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
-      <input matInput placeholder="Enter Interest Rate" type="text" required>
+      <input matInput placeholder="Enter Interest Rate" type="text" formControlName="interestRate"
+        id="interestRateInput" required>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
-      <input matInput placeholder="Enter Payments per Year" type="text" required>
+      <input matInput placeholder="Enter Preferred Flat Payment" type="text" formControlName="preferredPayment" required
+        id="preferredPaymentInput">
     </mat-form-field>
   </div>
   <div>
 
-    <button mat-flat-button color="primary">Calculate</button>
+    <button mat-flat-button color="primary" type="submit">Calculate</button>
 
   </div>
 </form>
 
 <app-table [loanTableOutput]="loanTableOutput"></app-table>
+
+<app-line-chart [data]="loanTableOutput"></app-line-chart>

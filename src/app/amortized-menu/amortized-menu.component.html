@@ -2,17 +2,26 @@
 
   <div>
     <mat-form-field>
-      <input matInput placeholder="Enter Loan Amount" type="text" formControlName="loanAmount" required id="loanAmountInput">
+      <input matInput placeholder="Enter Loan Amount" type="text" formControlName="loanAmount" required
+        id="loanAmountInput">
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
-      <input matInput placeholder="Enter Interest Rate" type="text" formControlName="interestRate" required id="interestRateInput">
+      <input matInput placeholder="Enter Interest Rate" type="text" formControlName="interestRate" required
+        id="interestRateInput">
     </mat-form-field>
   </div>
   <div>
     <mat-form-field>
-      <input matInput placeholder="Enter Term in Years" type="text" formControlName="termYears" required id="termYearsInput">
+      <input matInput placeholder="Enter Term in Years" type="text" formControlName="termYears" required
+        id="termYearsInput">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Enter Preferred Flat Payment" type="text" formControlName="preferredPayment" required
+        id="preferredPaymentInput">
     </mat-form-field>
   </div>
   <div>
@@ -23,3 +32,5 @@
 </form>
 
 <app-table [loanTableOutput]="loanTableOutput"></app-table>
+
+<app-line-chart [data]="loanTableOutput"></app-line-chart>
